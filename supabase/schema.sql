@@ -33,12 +33,21 @@ create table if not exists public.cards (
   --     "pub":   { "nicole": {...}, "breno": {...} } }
   -- A chave "legado" dentro de uma trava marca card anterior ao recurso.
   aprov jsonb not null default '{}',
-  -- Historico de pedidos de ajuste: [{ gate, por, at, texto }]
+  -- Conversa sobre o conteudo, numa lista so:
+  --   gate preenchido -> pedido de ajuste de uma trava, fecha quando a trava
+  --                      for refeita
+  --   gate nulo       -> pedido de mudanca solto, fecha no botao e carrega
+  --                      resolvidoEm/resolvidoPor
+  -- [{ gate, por, at, texto, resolvidoEm, resolvidoPor }]
   ajustes jsonb not null default '[]',
   -- Kit de publicacao, o que a Nicole monta antes de mandar para liberacao
   pub_titulo text default '',
   pub_descricao text default '',
   pub_capa text default '',
+  -- Material anexado ao card: panfleto, foto, PDF, arte. Arquivo mesmo mora no
+  -- Storage (bucket "anexos"), aqui fica a ficha dele.
+  -- [{ id, nome, tipo, tamanho, url, path, por, at }]
+  anexos jsonb not null default '[]',
   -- Leitura de resultado depois do ar: { nota, texto, at, por }
   resultado jsonb
 );
@@ -54,6 +63,7 @@ alter table public.cards add column if not exists pub_titulo text default '';
 alter table public.cards add column if not exists pub_descricao text default '';
 alter table public.cards add column if not exists pub_capa text default '';
 alter table public.cards add column if not exists resultado jsonb;
+alter table public.cards add column if not exists anexos jsonb not null default '[]';
 
 -- ---------- IDEIAS ----------
 create table if not exists public.ideas (
@@ -65,6 +75,38 @@ create table if not exists public.ideas (
   referencia text default '',
   created_at timestamptz not null default now()
 );
+
+-- ---------- STORAGE DOS ANEXOS ----------
+-- Bucket publico onde ficam os arquivos que a Nicole anexa no card (panfleto,
+-- foto, PDF) e que o Breno abre dentro do site antes de liberar. Publico aqui
+-- significa o mesmo que nas tabelas abaixo: quem tem o link le o arquivo. A
+-- protecao e a obscuridade da URL, nao autenticacao.
+--
+-- Se este bloco falhar por falta de permissao, nada mais no arquivo quebra: da
+-- para criar o bucket a mao no painel, em Storage > New bucket, com o nome
+-- "anexos" e a opcao Public marcada.
+do $$
+begin
+  insert into storage.buckets (id, name, public, file_size_limit)
+  values ('anexos', 'anexos', true, 26214400)
+  on conflict (id) do update set public = true, file_size_limit = 26214400;
+
+  execute 'drop policy if exists "anexos: leitura publica" on storage.objects';
+  execute 'drop policy if exists "anexos: escrita publica" on storage.objects';
+  execute 'drop policy if exists "anexos: atualizacao publica" on storage.objects';
+  execute 'drop policy if exists "anexos: exclusao publica" on storage.objects';
+
+  execute 'create policy "anexos: leitura publica" on storage.objects
+             for select using (bucket_id = ''anexos'')';
+  execute 'create policy "anexos: escrita publica" on storage.objects
+             for insert with check (bucket_id = ''anexos'')';
+  execute 'create policy "anexos: atualizacao publica" on storage.objects
+             for update using (bucket_id = ''anexos'') with check (bucket_id = ''anexos'')';
+  execute 'create policy "anexos: exclusao publica" on storage.objects
+             for delete using (bucket_id = ''anexos'')';
+exception when others then
+  raise notice 'Bucket de anexos nao configurado automaticamente (%). Crie a mao em Storage > New bucket, nome "anexos", marcando Public.', sqlerrm;
+end $$;
 
 -- ---------- REALTIME ----------
 -- Habilita a replicacao das duas tabelas para o canal realtime do Supabase,

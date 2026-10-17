@@ -15,7 +15,7 @@
     --vermelho:#B23A48; --vermelho-bg:#F7E4E6;
     --verde:#3F7A54; --verde-bg:#E6F2EA;
     --ambar:#9A6B12; --ambar-bg:#FBF3E2;
-    --c-longo:#3E6B7C; --c-curto:#4E8C79; --c-inst:#7E5A94; --c-inter:#C77D4A;
+    --c-longo:#3E6B7C; --c-curto:#4E8C79; --c-inst:#7E5A94; --c-inter:#C77D4A; --c-outros:#6E7A3F;
     --r-instagram:#D6337A; --r-youtube:#C0392B; --r-tiktok:#111827; --r-facebook:#3B6FB8;
     --serif:'Playfair Display',Georgia,serif;
     --sans:'Montserrat',system-ui,-apple-system,sans-serif;
@@ -236,6 +236,59 @@
   .chk-add input{flex:1;background:var(--branco);border:1px solid var(--linha);border-radius:7px;padding:8px 10px;font-size:12.5px}
   .chk-add button{background:var(--grafite);color:#fff;border-radius:7px;padding:0 14px;font-size:12px;font-weight:600}
 
+  /* ---------- MATERIAL ANEXADO ---------- */
+  .anx-box{border:1px solid var(--linha);border-radius:10px;padding:9px;background:var(--creme)}
+  .anx-grid{display:flex;gap:8px;flex-wrap:wrap}
+  .anx{width:94px;background:var(--branco);border:1px solid var(--linha);border-radius:9px;overflow:hidden;position:relative}
+  .anx .vis{width:100%;height:64px;display:flex;align-items:center;justify-content:center;background:var(--bege);cursor:zoom-in;padding:0}
+  .anx .vis img{width:100%;height:100%;object-fit:cover;display:block}
+  .anx .vis .ic{font-size:21px}
+  .anx .nm{font-size:9.5px;line-height:1.3;padding:5px 6px 6px;color:var(--grafite);word-break:break-word;text-align:left}
+  .anx .nm span{display:block;color:var(--muted);margin-top:2px}
+  .anx .del{position:absolute;top:3px;right:3px;width:20px;height:20px;border-radius:6px;background:rgba(255,255,255,.92);
+    color:var(--vermelho);font-size:14px;line-height:1;box-shadow:0 1px 3px rgba(0,0,0,.14)}
+  .anx .del:hover{background:var(--vermelho);color:#fff}
+  .anx-add{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px;align-items:center}
+  .anx-add button{background:var(--grafite);color:#fff;border-radius:7px;padding:8px 14px;font-size:12px;font-weight:600}
+  .anx-add button.sec{background:var(--branco);color:var(--grafite);border:1px solid var(--linha)}
+  .anx-add button[disabled]{opacity:.5;cursor:default}
+  .anx-add input[type=file]{display:none}
+  .anx-vazio{font-size:11.5px;color:var(--muted);font-style:italic;padding:3px 2px}
+  .anx-link{margin-top:9px;display:none;flex-direction:column;gap:7px}
+  .anx-link.on{display:flex}
+  .anx-link input{background:var(--branco);border:1px solid var(--linha);border-radius:7px;padding:8px 10px;font-size:12.5px;width:100%}
+  .anx-link .acoes{display:flex;gap:7px;align-items:center}
+  .anx-link .acoes .btn-primary{padding:8px 16px;font-size:12px;border-radius:7px}
+  .anx-link .acoes .btn-ghost{padding:8px 10px;font-size:12px}
+  .anx-strip{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+  .anx-strip .anx{width:70px}
+  .anx-strip .anx .vis{height:48px}
+  .visor-corpo{text-align:center}
+  .visor-corpo img{max-width:100%;max-height:62vh;border-radius:10px;display:block;margin:0 auto}
+  .visor-corpo iframe{width:100%;height:62vh;border:1px solid var(--linha);border-radius:10px;background:var(--branco)}
+  .visor-corpo .sem{font-size:13px;color:var(--muted);padding:34px 10px;line-height:1.6}
+  .modal-foot a.btn-ghost,.modal-foot a.btn-primary{text-decoration:none;display:inline-flex;align-items:center}
+
+  /* ---------- CONVERSA SOBRE O MATERIAL ---------- */
+  .conversa{display:flex;flex-direction:column;gap:8px}
+  .conv-item{background:var(--creme);border:1px solid var(--linha);border-radius:10px;padding:9px 11px}
+  .conv-item.aberto{background:#F3EFF8;border-color:#D8CCE6}
+  .conv-item.feito{opacity:.7}
+  .conv-item .top{display:flex;align-items:center;gap:7px;font-size:10px;letter-spacing:.6px;
+    text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:5px;flex-wrap:wrap}
+  .conv-item .top .tag{background:var(--bege);border-radius:20px;padding:1px 7px;letter-spacing:.4px}
+  .conv-item .top .qq{margin-left:auto;letter-spacing:.3px;text-transform:none;font-weight:600}
+  .conv-item .txt{font-size:12.5px;line-height:1.5;white-space:pre-wrap}
+  .conv-item .fim{font-size:10.5px;color:var(--verde);font-weight:600;margin-top:6px}
+  .conv-item .acao{margin-top:7px}
+  .conv-item .acao button{background:var(--branco);border:1px solid var(--linha);color:var(--grafite);
+    border-radius:7px;padding:6px 11px;font-size:11.5px;font-weight:600}
+  .conv-item .acao button:hover{border-color:var(--verde);color:var(--verde)}
+  .conv-add{display:flex;gap:7px;margin-top:9px;align-items:flex-start}
+  .conv-add textarea{flex:1;min-height:46px}
+  .conv-add button{padding:11px 16px;font-size:12.5px;flex-shrink:0}
+  .conv-vazio{font-size:11.5px;color:var(--muted);font-style:italic;padding:2px}
+
   .modal-foot{padding:16px 24px 22px;display:flex;gap:10px;align-items:center;position:sticky;bottom:0;background:var(--branco);border-top:1px solid var(--linha);flex-wrap:wrap}
   .btn-primary{background:var(--dourado);color:#fff;border-radius:9px;padding:11px 22px;font-weight:600;font-size:13.5px}
   .btn-primary:hover{filter:brightness(1.06)}
@@ -294,6 +347,7 @@
   .selo.outro{background:var(--creme);color:var(--muted)}
   .selo.ok{background:var(--verde-bg);color:var(--verde)}
   .selo.furo,.selo.ajuste{background:var(--vermelho-bg);color:var(--vermelho)}
+  .selo.recado{background:#F3EFF8;color:#7E5A94}
   .selo .q{margin-left:auto;font-weight:700;opacity:.8;white-space:nowrap;padding-left:6px}
   .selo.res-abaixo{background:var(--vermelho-bg);color:var(--vermelho)}
   .selo.res-dentro{background:var(--creme);color:var(--muted)}
@@ -498,7 +552,35 @@
         <input id="fPubTitulo" placeholder="Título da publicação" style="margin-bottom:9px">
         <textarea id="fPubDescricao" placeholder="Descrição ou legenda que vai no post" style="margin-bottom:9px"></textarea>
         <input id="fPubCapa" placeholder="Capa: link do Canva, do Drive ou onde ela está">
+        <label style="margin-top:14px">Material anexado</label>
+        <div class="anx-box">
+          <div class="anx-grid" id="anxGrid"></div>
+          <div class="anx-add">
+            <input type="file" id="anxFile" multiple accept="image/*,application/pdf,.doc,.docx,.txt">
+            <button type="button" id="anxPick">⤒ Anexar arquivo</button>
+            <button type="button" class="sec" id="anxLink">Anexar por link</button>
+          </div>
+          <div class="anx-link" id="anxLinkForm">
+            <input id="anxLinkUrl" placeholder="https://… link do Drive, do Canva, do WeTransfer">
+            <input id="anxLinkNome" placeholder="Como chamar este material (opcional)">
+            <div class="acoes">
+              <button type="button" class="btn-primary" id="anxLinkOk">Adicionar</button>
+              <button type="button" class="btn-ghost" id="anxLinkCancel">Cancelar</button>
+            </div>
+          </div>
+        </div>
+        <div class="hint-inline" id="anxNota" style="margin-top:6px"></div>
         <div class="hint-inline" id="kitStatus" style="margin-top:7px"></div>
+      </div>
+      <div class="field" id="convBox">
+        <label>Conversa sobre o material</label>
+        <div class="hint-inline" style="margin-top:-3px;margin-bottom:9px">O que precisa melhorar e a resposta de quem refez, na ordem em que foi dito. Pedido em aberto aparece no card do quadro até alguém marcar como feito.</div>
+        <div class="conversa" id="convLista"></div>
+        <div class="conv-add">
+          <textarea id="fRecado" placeholder="O que você quer que mude? Seja específico: é isso que a outra pessoa vai ler."></textarea>
+          <button type="button" class="btn-primary" id="btnRecado">Enviar</button>
+        </div>
+        <div class="hint-inline" id="convNota"></div>
       </div>
       <div class="field">
         <label>Link do vídeo ou Sharepoint</label>
@@ -663,6 +745,22 @@
   </div>
 </div>
 
+<!-- VISOR DO MATERIAL ANEXADO -->
+<div class="overlay" id="overlayVisor">
+  <div class="modal" style="max-width:880px">
+    <div class="modal-head">
+      <h2 id="vzTitulo">Material</h2>
+      <button class="x" id="vzClose">&times;</button>
+    </div>
+    <div class="modal-body visor-corpo" id="vzCorpo"></div>
+    <div class="modal-foot">
+      <span class="hint-inline" id="vzInfo" style="margin-right:auto"></span>
+      <a class="btn-ghost" id="vzAbrir" target="_blank" rel="noopener">Abrir em nova aba</a>
+      <a class="btn-primary" id="vzBaixar" target="_blank" rel="noopener" download>⤓ Baixar</a>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 <div class="tip" id="tip"></div>
 
@@ -694,10 +792,14 @@ const STAGES=[
 ];
 const S_PROD=0,S_AGEND=1,S_GRAV=2,S_ENTR=3,S_POST=4;
 
-const CLASSIF=['Vídeo longo / YouTube','Vídeo curto','Institucional','Internacional'];
-const CCOR={'Vídeo longo / YouTube':'var(--c-longo)','Vídeo curto':'var(--c-curto)','Institucional':'var(--c-inst)','Internacional':'var(--c-inter)'};
+/* 'Outros' e o material que nao e video: panfleto, foto a parte, arte de
+   campanha. Entrou porque esse trabalho ja existia e nao tinha onde morar no
+   quadro, entao vivia fora dele. Nao tem meta mensal: a meta mede o que a
+   agenda de gravacao precisa produzir, e isso aqui nasce de demanda avulsa. */
+const CLASSIF=['Vídeo longo / YouTube','Vídeo curto','Institucional','Internacional','Outros'];
+const CCOR={'Vídeo longo / YouTube':'var(--c-longo)','Vídeo curto':'var(--c-curto)','Institucional':'var(--c-inst)','Internacional':'var(--c-inter)','Outros':'var(--c-outros)'};
 
-const IDEA_FORMATOS=['Vídeo curto','Vídeo longo / YouTube','Feed','Story','Institucional','Internacional'];
+const IDEA_FORMATOS=['Vídeo curto','Vídeo longo / YouTube','Feed','Story','Institucional','Internacional','Outros'];
 const PRIO_ORDER={'Alta':0,'Média':1,'Baixa':2};
 
 const REDES=['Instagram','YouTube','TikTok','Facebook'];
@@ -719,6 +821,7 @@ let draftChecklist=[];
 let draftResNota='';
 let draftClassif=[];
 let draftAreas=[];
+let draftAnexos=[];
 let view='board';
 let calYear=new Date().getFullYear();
 let calSelectedDay=null;
@@ -771,7 +874,11 @@ function checklistFor(clArr){
   const curto=[...comuns,'Fotos atualizadas no Kenlo'];
   const inst=[...comuns,'Ideia escolhida com horário combinado com o Isaac','Itens de gravação providenciados'];
   const inter=[...comuns];
-  const map={'Vídeo longo / YouTube':longo,'Vídeo curto':curto,'Institucional':inst,'Internacional':inter};
+  /* Material avulso nao tem roteiro nem corretor para avisar: o que existe e o
+     arquivo, e e ele que vai ser conferido. Por isso checklist proprio, em vez
+     de herdar os comuns e deixar duas caixinhas que nunca serao marcadas. */
+  const outros=['Briefing ou referência definida','Arquivo anexado para conferência'];
+  const map={'Vídeo longo / YouTube':longo,'Vídeo curto':curto,'Institucional':inst,'Internacional':inter,'Outros':outros};
   const base=(clArr&&clArr.length)?(map[clArr[0]]||longo):longo;
   return base.map(t=>({text:t,done:false}));
 }
@@ -844,6 +951,42 @@ const gateDe=k=>GATES.find(g=>g.key===k);
    cada um diz o que aquela pessoa esta de fato fazendo. */
 function rotuloAcao(g,pessoa){ return (g.acaoPor&&g.acaoPor[pessoa])||g.acao; }
 
+/* ---------- MATERIAL ANEXADO ----------
+   Panfleto, foto, PDF, arte: o Breno precisa ver a coisa, nao a descricao
+   dela. Por isso o arquivo mora no card e abre dentro do site, na hora de
+   liberar, em vez de virar link perdido no WhatsApp.
+
+   Cada anexo:  { id, nome, tipo, tamanho, url, path, por, at }
+     path  so existe no que subiu para o Storage do Supabase, e e por ele que
+           se apaga o arquivo de verdade.
+     url   e o que a tela usa. Num anexo por link, e o link colado. */
+const ANEXO_BUCKET='anexos';
+const ANEXO_MAX=25*1024*1024;
+/* Vale o que o Breno consegue conferir olhando: imagem, PDF, documento de
+   texto. O resto seria anexo que ninguem abre sem baixar. */
+const ANEXO_TIPOS_OK=/^(image\/|application\/pdf$|application\/msword$|application\/vnd\.openxmlformats-officedocument|text\/plain$)/;
+function anexosDe(c){ return Array.isArray(c.anexos)?c.anexos:[]; }
+function ehImagem(a){
+  return /^image\//.test(a.tipo||'') || (!a.tipo && /\.(png|jpe?g|gif|webp|avif|bmp)(\?|#|$)/i.test(a.url||''));
+}
+function ehPdf(a){
+  return (a.tipo||'')==='application/pdf' || (!a.tipo && /\.pdf(\?|#|$)/i.test(a.url||''));
+}
+function iconeAnexo(a){ return ehPdf(a)?'📄':(ehImagem(a)?'🖼':'📎'); }
+function fmtTamanho(n){
+  if(!n) return '';
+  if(n<1024) return n+' B';
+  if(n<1024*1024) return Math.round(n/1024)+' KB';
+  return (n/1024/1024).toFixed(1).replace('.',',')+' MB';
+}
+/* Material avulso sem arquivo nao e material: nao ha o que aprovar. Em video,
+   o anexo e opcional, porque ali o que vai ao ar e o video. */
+function exigeAnexo(c){ return (c.classificacoes||[]).includes('Outros'); }
+function soOutros(c){
+  const cl=c.classificacoes||[];
+  return cl.length===1 && cl[0]==='Outros';
+}
+
 /* ---------- KIT DE PUBLICAÇÃO ----------
    O que a Nicole precisa ter pronto antes de mandar para o Breno. Titulo so
    e exigido quando tem YouTube envolvido, que e onde o titulo trabalha. */
@@ -855,7 +998,10 @@ function kitPendencias(c){
   const faltam=[];
   if(exigeTitulo(c) && !(c.pubTitulo||'').trim()) faltam.push('o título');
   if(!(c.pubDescricao||'').trim()) faltam.push('a descrição');
-  if(!(c.pubCapa||'').trim()) faltam.push('a capa');
+  /* Num panfleto, o arquivo E a peca: cobrar capa dele seria pedir duas vezes
+     a mesma coisa, e pendencia que nao faz sentido ensina a ignorar pendencia. */
+  if(!soOutros(c) && !(c.pubCapa||'').trim()) faltam.push('a capa');
+  if(exigeAnexo(c) && !anexosDe(c).length) faltam.push('o arquivo do material');
   if(!(c.areas||[]).some(a=>a.data)) faltam.push('a data de publicação');
   return faltam;
 }
@@ -863,7 +1009,10 @@ function kitPendencias(c){
    era sobre outro pacote, entao ela cai. */
 function kitAssinatura(c){
   return [(c.pubTitulo||'').trim(),(c.pubDescricao||'').trim(),(c.pubCapa||'').trim(),
-    (c.areas||[]).filter(a=>a.data).map(a=>a.rede+'|'+a.data).sort().join(',')].join('\u00a7');
+    (c.areas||[]).filter(a=>a.data).map(a=>a.rede+'|'+a.data).sort().join(','),
+    /* Trocar o panfleto depois de liberado e trocar o que foi aprovado. O
+       anexo entra na assinatura justamente para a liberacao cair nesse caso. */
+    anexosDe(c).map(a=>a.id).sort().join(',')].join('\u00a7');
 }
 
 /* ---------- ESTADO DE CADA TRAVA ---------- */
@@ -947,6 +1096,38 @@ function zeraGatePub(c){
   const tinha=gateDe('pub').ordem.some(p=>a[p]&&a[p].at);
   if(!tinha) return false;
   gateDe('pub').ordem.forEach(p=>{ delete a[p]; });
+  return true;
+}
+
+/* ---------- CONVERSA SOBRE O MATERIAL ----------
+   Pedir ajuste e veredito de trava: derruba a aprovacao e devolve o card.
+   Recado e o resto da conversa, que existe de qualquer jeito: "troca essa
+   foto", "a cor ficou escura", e a resposta de quem refez.
+
+   Os dois moram na MESMA lista `ajustes`, porque quem vai refazer o material
+   nao deveria ter que olhar em dois lugares para descobrir o que falta. O que
+   separa um do outro e o campo gate: preenchido, veio de uma trava e so fecha
+   quando a trava for refeita; nulo, e recado solto e fecha no botao.
+
+   Recado nao derruba liberacao. Quem quer derrubar tem o Pedir ajuste logo
+   acima, e o modal diz isso quando a liberacao ja esta dada. */
+function conversaDe(c){
+  return (c.ajustes||[]).map((a,i)=>({...a,idx:i})).sort((a,b)=>(a.at||0)-(b.at||0));
+}
+function recadosAbertos(c){
+  return (c.ajustes||[]).filter(a=>!a.gate && !a.resolvidoEm);
+}
+function mandaRecado(c,pessoa,texto){
+  c.ajustes=(c.ajustes||[]).concat([
+    {gate:null,por:pessoa||null,at:Date.now(),texto:(texto||'').trim()}]);
+}
+/* Fecha um recado solto. Pedido de trava nao entra aqui de proposito: aquele
+   so fecha refazendo a trava, senao bastaria um clique para apagar o veredito. */
+function marcaRecadoFeito(c,idx,pessoa){
+  const a=(c.ajustes||[])[idx];
+  if(!a || a.gate || a.resolvidoEm) return false;
+  a.resolvidoEm=Date.now();
+  a.resolvidoPor=pessoa||null;
   return true;
 }
 
@@ -1148,6 +1329,7 @@ function reconcileCard(c){
   if(c.pubTitulo===undefined) c.pubTitulo='';
   if(c.pubDescricao===undefined) c.pubDescricao='';
   if(c.pubCapa===undefined) c.pubCapa='';
+  if(!Array.isArray(c.anexos)) c.anexos=[];
   if(!Array.isArray(c.ajustes)) c.ajustes=[];
   if(c.resultado===undefined) c.resultado=null;
   /* Card que ja existia antes das travas nao vira furo retroativo nem enche a
@@ -1195,6 +1377,12 @@ function initCloud(){
   }
 }
 let temColunasAprov=true;
+/* A coluna dos anexos e o bucket do Storage sao sondados separado das colunas
+   das travas, de proposito: quem rodou a atualizacao anterior e nao rodou esta
+   continua aprovando normal, em vez de perder as aprovacoes por causa de um
+   recurso novo. */
+let temColunaAnexos=true;
+let temBucketAnexos=false;
 function cardToRow(c){
   const r={
     id:c.id, title:c.title, classificacoes:c.classificacoes, corretor:c.corretor, codigo:c.codigo,
@@ -1220,6 +1408,7 @@ function cardToRow(c){
     r.pub_capa=c.pubCapa||'';
     r.resultado=c.resultado||null;
   }
+  if(temColunaAnexos) r.anexos=anexosDe(c);
   return r;
 }
 function rowToCard(r){
@@ -1238,6 +1427,7 @@ function rowToCard(r){
     aprov:r.aprov||null, ajustes:r.ajustes||[],
     pubTitulo:r.pub_titulo||'', pubDescricao:r.pub_descricao||'', pubCapa:r.pub_capa||'',
     resultado:r.resultado||null,
+    anexos:Array.isArray(r.anexos)?r.anexos:[],
   };
 }
 function ideaToRow(i){
@@ -1304,11 +1494,66 @@ async function sondaColunas(){
    some no proximo carregamento. Entao no modo nuvem sem as colunas, trava. */
 function aprovacoesPersistem(){ return !cloud || temColunasAprov; }
 
+/* Duas perguntas diferentes, duas respostas:
+     a LISTA de anexos precisa da coluna no banco;
+     SUBIR arquivo precisa, alem disso, do bucket do Storage.
+   Sem o bucket ainda da para anexar por link, que e melhor do que nada e e o
+   unico caminho possivel no modo local. */
+async function sondaAnexos(){
+  if(!cloud){ temColunaAnexos=true; temBucketAnexos=false; return; }
+  try{
+    const {error}=await sb.from('cards').select('anexos').limit(1);
+    temColunaAnexos=!error;
+    if(error){ console.warn('banco sem a coluna de anexos:',error.message); temBucketAnexos=false; return; }
+  }catch(e){ temColunaAnexos=false; temBucketAnexos=false; return; }
+  try{
+    const r=await sb.storage.from(ANEXO_BUCKET).list('',{limit:1});
+    temBucketAnexos=!r.error;
+    if(r.error) console.warn('Storage sem o bucket '+ANEXO_BUCKET+':',r.error.message);
+  }catch(e){ temBucketAnexos=false; }
+}
+function listaAnexosPersiste(){ return !cloud || temColunaAnexos; }
+function podeSubirArquivo(){ return cloud && temColunaAnexos && temBucketAnexos; }
+
+/* Nome de arquivo e dado de fora: acento, espaco e barra viram caminho torto
+   no Storage. Aqui ele vira um nome previsivel, e o nome bonito fica no card. */
+function slugArquivo(nome){
+  const limpo=(nome||'arquivo').normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .replace(/[^a-zA-Z0-9.\-_]+/g,'-').replace(/-+/g,'-').replace(/^-|-$/g,'');
+  return (limpo||'arquivo').slice(-60);
+}
+function anexoRecusa(file){
+  if(file.size>ANEXO_MAX) return '"'+file.name+'" tem '+fmtTamanho(file.size)+
+    ' e o limite é '+fmtTamanho(ANEXO_MAX)+'. Suba uma versão mais leve.';
+  if(file.type && !ANEXO_TIPOS_OK.test(file.type)) return '"'+file.name+
+    '" não é imagem, PDF nem documento de texto. Esses são os que abrem aqui dentro.';
+  return null;
+}
+async function subirAnexo(file,prefixo){
+  const path=(prefixo||'solto')+'/'+Date.now()+'-'+slugArquivo(file.name);
+  const {error}=await sb.storage.from(ANEXO_BUCKET)
+    .upload(path,file,{contentType:file.type||'application/octet-stream',upsert:false});
+  if(error) throw error;
+  const {data}=sb.storage.from(ANEXO_BUCKET).getPublicUrl(path);
+  return {id:crypto.randomUUID(),nome:file.name,tipo:file.type||'',tamanho:file.size,
+    url:data.publicUrl,path,por:quem||null,at:Date.now()};
+}
+/* Arquivo apagado no card sai tambem do Storage. Anexo por link nao tem path:
+   ali nao existe arquivo nosso para apagar. */
+async function apagaArquivoAnexo(a){
+  if(!a || !a.path || !cloud) return;
+  try{
+    const {error}=await sb.storage.from(ANEXO_BUCKET).remove([a.path]);
+    if(error) console.error('remover anexo',error);
+  }catch(e){ console.error('remover anexo',e); }
+}
+
 /* ---------- STORAGE ---------- */
 async function load(){
   initCloud();
   if(cloud){
     await sondaColunas();
+    await sondaAnexos();
     try{
       const [cardsRes,ideasRes]=await Promise.all([
         sb.from('cards').select('*').order('created_at',{ascending:true}),
@@ -1494,6 +1739,48 @@ function salvaAjuste(){
   fecharAjuste(); render();
 }
 
+/* ---------- VISOR DO MATERIAL ----------
+   Aprovar material que so existe como link e aprovar no escuro. O visor abre
+   imagem e PDF dentro do site, do lado do botao de liberar. */
+function abreVisor(a){
+  if(!a) return;
+  document.getElementById('vzTitulo').textContent=a.nome||'Material anexado';
+  const corpo=document.getElementById('vzCorpo');
+  if(ehImagem(a)) corpo.innerHTML=`<img src="${esc(a.url)}" alt="${esc(a.nome||'')}">`;
+  else if(ehPdf(a)) corpo.innerHTML=`<iframe src="${esc(a.url)}" title="${esc(a.nome||'')}"></iframe>`;
+  else corpo.innerHTML=`<div class="sem">Este tipo de arquivo não abre aqui dentro.<br>`+
+    `Use <b>Abrir em nova aba</b> ou <b>Baixar</b> para conferir.</div>`;
+  document.getElementById('vzInfo').textContent=
+    [a.por?('anexado por '+nomeDe(a.por)):'',a.at?fmtQuando(a.at):'',fmtTamanho(a.tamanho)]
+      .filter(Boolean).join(' · ');
+  const ab=document.getElementById('vzAbrir'), bx=document.getElementById('vzBaixar');
+  ab.href=a.url; bx.href=a.url; bx.setAttribute('download',a.nome||'');
+  document.getElementById('overlayVisor').classList.add('open');
+}
+function fechaVisor(){
+  document.getElementById('overlayVisor').classList.remove('open');
+  document.getElementById('vzCorpo').innerHTML='';
+}
+/* verAttr muda de lugar para lugar: no editor o anexo ainda e rascunho e nao
+   esta no card, entao quem clica procura na lista do rascunho, nao no card. */
+function anexoThumbHtml(a,verAttr,comDel){
+  const vis = ehImagem(a)
+    ? `<img src="${esc(a.url)}" alt="${esc(a.nome||'')}" loading="lazy">`
+    : `<span class="ic">${iconeAnexo(a)}</span>`;
+  const sub=[a.path?fmtTamanho(a.tamanho):'link',a.por?nomeDe(a.por):''].filter(Boolean).join(' · ');
+  return `<div class="anx">`+
+    `<button type="button" class="vis" ${verAttr} title="Ver ${esc(a.nome||'')}">${vis}</button>`+
+    `<div class="nm">${esc((a.nome||'arquivo').slice(0,34))}<span>${esc(sub)}</span></div>`+
+    (comDel?`<button type="button" class="del" data-anxdel="${esc(a.id)}" title="Remover">&times;</button>`:'')+
+    `</div>`;
+}
+function anexosStripHtml(c){
+  const l=anexosDe(c);
+  if(!l.length) return '';
+  return `<div class="anx-strip">`+
+    l.map(a=>anexoThumbHtml(a,`data-vz="${esc(c.id)}|${esc(a.id)}"`,false)).join('')+`</div>`;
+}
+
 /* ---------- SELO DE APROVAÇÃO NO CARD DO QUADRO ----------
    Uma linha, sempre a mesma pergunta respondida: em quem está a bola. */
 function seloCard(c){
@@ -1511,6 +1798,17 @@ function seloCard(c){
   if(ehMinhaVez(c,g.key,quem)) return `<div class="selo voce">✋ Espera você · ${esc(g.curto)}${qh}</div>`;
   const espera=quemEsperamos(c,g.key).map(nomeDe);
   return `<div class="selo outro">⏳ Com ${esc(listaPt(espera))} · ${esc(g.curto)}${qh}</div>`;
+}
+/* Pedido de mudanca em aberto aparece no quadro mesmo sem travar etapa: a
+   lista existe para ser vista sem abrir card nenhum. */
+function seloRecados(c){
+  const l=recadosAbertos(c);
+  if(!l.length) return '';
+  const ult=l[l.length-1];
+  const txt = l.length===1
+    ? esc(nomeDe(ult.por))+' pediu mudança'
+    : l.length+' pedidos de mudança';
+  return `<div class="selo recado">💬 ${txt}</div>`;
 }
 function seloResultado(c){
   if(!c.resultado||!c.resultado.nota) return '';
@@ -1533,6 +1831,16 @@ function furosRecentes(dias){
   });
   return out.sort((a,b)=>b.marco-a.marco);
 }
+/* Um item por pedido de mudanca em aberto, do quadro todo. E a lista que
+   responde "o que o outro quer que eu arrume". */
+function recadosAbertosTodos(){
+  const out=[];
+  cards.forEach(c=>{
+    if(c.archived) return;
+    (c.ajustes||[]).forEach((a,i)=>{ if(!a.gate && !a.resolvidoEm) out.push({c,a,idx:i}); });
+  });
+  return out.sort((x,y)=>(y.a.at||0)-(x.a.at||0));
+}
 function cardFilaHtml(i,modo){
   const {c,g,quando}=i;
   const urg = quando.cls==='red'||quando.cls==='soon';
@@ -1545,8 +1853,16 @@ function cardFilaHtml(i,modo){
     corpo+=`<div class="criterios"><div class="t">${esc(g.pergunta)}</div>`+
       `<ul>${g.criterios.map(t=>`<li>${esc(t)}</li>`).join('')}</ul></div>`;
   }
+  /* Na liberacao, o material vem junto: quem decide tem que poder olhar antes
+     de clicar, sem sair daqui. */
+  if(g.key==='pub') corpo+=anexosStripHtml(c);
   if(ped){
     corpo+=`<div class="pedido"><b>Ajuste pedido por ${esc(nomeDe(ped.por))} · ${esc(fmtQuando(ped.at))}</b>${esc(ped.texto)}</div>`;
+  }
+  const abertos=recadosAbertos(c);
+  if(abertos.length){
+    const u=abertos[abertos.length-1];
+    corpo+=`<div class="pedido"><b>Pedido de mudança de ${esc(nomeDe(u.por))} · ${esc(fmtQuando(u.at))}</b>${esc(u.texto)}</div>`;
   }
   let acoes='';
   if(modo==='meu'){
@@ -1579,6 +1895,7 @@ function renderAprovView(){
   const furosAgora=furosRecentes(30).filter(f=>!f.c.archived);
   const furos30=furosRecentes(30);
   const resPend=pendentesResultado();
+  const recadosPend=recadosAbertosTodos();
   const outro=PESSOAS.find(p=>p.key!==quem);
 
   let html=`<h2>Aprovações</h2>
@@ -1600,6 +1917,24 @@ function renderAprovView(){
       ? `<div class="aprov-grid">${meus.map(i=>cardFilaHtml(i,'meu')).join('')}</div>`
       : `<div class="aprov-empty">✓ Nada esperando você. A fila está limpa.</div>`;
     html+=`</div>`;
+  }
+
+  if(recadosPend.length){
+    html+=`<div class="aprov-sec">
+      <h3 class="urg">Pedidos de mudança <span class="n">${recadosPend.length}</span></h3>
+      <div class="sub">O que alguém pediu para melhorar e ninguém marcou como feito ainda.
+        Não trava etapa nenhuma: é a lista do que falta arrumar no material.</div>
+      <div class="aprov-grid">`+recadosPend.map(r=>`
+        <div class="aprov-card espera">
+          <div class="gate">Pedido de ${esc(nomeDe(r.a.por))} · ${esc(fmtQuando(r.a.at))}</div>
+          <h4>${esc(r.c.title)}</h4>
+          ${anexosStripHtml(r.c)}
+          <div class="pedido"><b>O que mudar</b>${esc(r.a.texto)}</div>
+          <div class="row">
+            ${quem?`<button class="btn-ok" data-convrs="${esc(r.c.id)}|${r.idx}">✓ Marcar como feito</button>`:''}
+            <button class="btn-abrir" data-ab="${esc(r.c.id)}">Abrir</button>
+          </div>
+        </div>`).join('')+`</div></div>`;
   }
 
   html+=`<div class="aprov-sec">
@@ -1675,6 +2010,14 @@ function renderAprovView(){
   box.querySelectorAll('[data-ab]').forEach(b=>b.addEventListener('click',()=>{
     const c=cards.find(x=>x.id===b.dataset.ab); if(c) openCardModal(c);
   }));
+  box.querySelectorAll('[data-convrs]').forEach(b=>b.addEventListener('click',()=>{
+    const [id,idx]=b.dataset.convrs.split('|');
+    const c=cards.find(x=>x.id===id); if(!c) return;
+    if(marcaRecadoFeito(c,+idx,quem)){
+      syncCard(c); render();
+      toast('Pedido marcado como feito. Saiu da lista e fica no histórico do card.');
+    }
+  }));
   box.querySelectorAll('[data-res]').forEach(b=>b.addEventListener('click',()=>{
     const [id,nota]=b.dataset.res.split('|');
     const c=cards.find(x=>x.id===id); if(!c) return;
@@ -1733,6 +2076,14 @@ function renderAlertbar(){
       (urgentes?`, ${urgentes} para até amanhã`:'')+`</span>`);
   }
 
+  const recs=recadosAbertosTodos();
+  if(recs.length){
+    const tip=tipRegister('Pedidos de mudança em aberto',
+      recs.map(r=>r.c.title+' · '+nomeDe(r.a.por)));
+    partes.push(`<span class="ir-fila" style="text-decoration:underline;cursor:pointer"${tip}>`+
+      `💬 ${recs.length} pedido${recs.length>1?'s':''} de mudança</span>`);
+  }
+
   const abertos=[];
   cards.forEach(c=>{ if(!c.archived) furos(c).forEach(g=>abertos.push(c.title+' · '+g.furo)); });
   if(abertos.length){
@@ -1751,12 +2102,16 @@ function renderAlertbar(){
    que salvou, o app diz em cima o que falta e mantem o resto funcionando. */
 function renderSchemabar(){
   const b=document.getElementById('schemabar');
-  if(cloud && !temColunasAprov){
-    b.classList.add('on');
-    b.innerHTML='⚠ O banco ainda não tem as colunas das aprovações, então elas não salvam. '+
-      'Abra o Supabase, vá em SQL Editor e rode o arquivo <b>supabase/schema.sql</b> de novo. '+
-      'O resto do quadro segue funcionando normal.';
-  }else b.classList.remove('on');
+  if(!cloud){ b.classList.remove('on'); return; }
+  const faltas=[];
+  if(!temColunasAprov) faltas.push('as colunas das aprovações, então elas não salvam');
+  if(!temColunaAnexos) faltas.push('a coluna dos anexos, então material anexado não salva');
+  else if(!temBucketAnexos) faltas.push('o bucket <b>anexos</b> no Storage, então não dá para subir arquivo, só anexar por link');
+  if(!faltas.length){ b.classList.remove('on'); return; }
+  b.classList.add('on');
+  b.innerHTML='⚠ Falta '+listaPt(faltas)+'. '+
+    'Abra o Supabase, vá em SQL Editor e rode o arquivo <b>supabase/schema.sql</b> de novo. '+
+    'O resto do quadro segue funcionando normal.';
 }
 
 function renderBoard(){
@@ -1844,6 +2199,8 @@ function cardEl(c,si){
 
   let metaLines='';
   if(c.dataGravacao && si<=S_GRAV) metaLines+=`<div class="meta-line">🎥 Grava <b>${fmtISO(c.dataGravacao)}</b></div>`;
+  const nAnx=anexosDe(c).length;
+  if(nAnx) metaLines+=`<div class="meta-line">📎 ${nAnx} ${nAnx===1?'arquivo anexado':'arquivos anexados'}</div>`;
 
   let redesHtml='';
   if(c.areas && c.areas.length){
@@ -1865,6 +2222,7 @@ function cardEl(c,si){
     ${redesHtml}
     <div class="foot">${foot}</div>
     ${seloCard(c)}
+    ${seloRecados(c)}
     ${seloResultado(c)}
     ${total?`<div class="chkbar"><div class="track"><div class="fill" style="width:${pct}%"></div></div><span class="frac">${done}/${total}</span></div>`:''}
   `;
@@ -2069,6 +2427,7 @@ function kitDoDraft(){
     pubTitulo:(document.getElementById('fPubTitulo')||{}).value||'',
     pubDescricao:(document.getElementById('fPubDescricao')||{}).value||'',
     pubCapa:(document.getElementById('fPubCapa')||{}).value||'',
+    anexos:draftAnexos.map(a=>({...a})),
   };
 }
 function atualizaKitStatus(){
@@ -2090,6 +2449,203 @@ function atualizaKitStatus(){
     if(c) renderAprovBox(c);
   }
 }
+/* ---------- MATERIAL ANEXADO NO MODAL ----------
+   Anexar e remover arquivo nao e rascunho: o arquivo ja subiu ou ja foi
+   apagado no Storage no instante do clique. Entao o card tambem e salvo na
+   hora, senao fechar o modal no Cancelar deixaria arquivo orfao de um lado e
+   card sem anexo do outro. */
+function renderAnexosEditor(){
+  const grid=document.getElementById('anxGrid');
+  grid.innerHTML = draftAnexos.length
+    ? draftAnexos.map(a=>anexoThumbHtml(a,`data-anxver="${esc(a.id)}"`,true)).join('')
+    : `<div class="anx-vazio">Nada anexado ainda.</div>`;
+  grid.querySelectorAll('[data-anxver]').forEach(b=>b.addEventListener('click',()=>{
+    abreVisor(draftAnexos.find(x=>x.id===b.dataset.anxver));
+  }));
+  grid.querySelectorAll('[data-anxdel]').forEach(b=>b.addEventListener('click',()=>
+    removeAnexo(b.dataset.anxdel)));
+  atualizaAnexoNota();
+}
+function atualizaAnexoNota(){
+  const nota=document.getElementById('anxNota');
+  const pick=document.getElementById('anxPick');
+  const link=document.getElementById('anxLink');
+  if(!nota) return;
+  if(!listaAnexosPersiste()){
+    pick.disabled=true; link.disabled=true;
+    nota.innerHTML='<b style="color:var(--ambar)">O banco ainda não tem a coluna dos anexos</b>, '+
+      'então nada anexado aqui ficaria salvo. Rode o <b>supabase/schema.sql</b> de novo para liberar.';
+    return;
+  }
+  pick.disabled=!podeSubirArquivo(); link.disabled=false;
+  if(podeSubirArquivo()){
+    nota.innerHTML='Imagem, PDF ou documento, até '+fmtTamanho(ANEXO_MAX)+' cada. '+
+      'O arquivo abre aqui dentro, do lado do botão de liberar, para ser conferido antes de ir ao ar.';
+  }else if(cloud){
+    nota.innerHTML='<b style="color:var(--ambar)">O Storage ainda não tem o bucket <b>anexos</b></b>, '+
+      'então não dá para subir arquivo. Até rodar a atualização, anexe por link.';
+  }else{
+    nota.innerHTML='No modo local não existe onde subir arquivo. Anexe por link, '+
+      'ou configure o Supabase para subir de verdade.';
+  }
+}
+/* Aplica no card o que esta no rascunho de anexos, na hora. Trocar o material
+   depois de liberado derruba a liberacao pelo mesmo motivo que trocar a capa:
+   o aval era sobre o pacote antigo. */
+function aplicaAnexosNoCard(){
+  renderAnexosEditor();
+  atualizaKitStatus();
+  if(!editingCardId) return;
+  const c=cards.find(x=>x.id===editingCardId);
+  if(!c) return;
+  const antes=kitAssinatura(c);
+  c.anexos=draftAnexos.map(a=>({...a}));
+  const caiu = kitAssinatura(c)!==antes ? zeraGatePub(c) : false;
+  syncCard(c);
+  renderAprovBox(c);
+  render();
+  if(caiu) toast('O material mudou, então a liberação que existia caiu. Voltou para a fila.');
+}
+async function anexaArquivos(files){
+  if(!podeSubirArquivo()) return;
+  const prefixo=editingCardId||'novos';
+  let n=0;
+  for(const f of Array.from(files)){
+    const recusa=anexoRecusa(f);
+    if(recusa){ toast(recusa); continue; }
+    try{
+      toast('Subindo "'+f.name+'"…');
+      draftAnexos.push(await subirAnexo(f,prefixo));
+      n++;
+    }catch(e){
+      console.error('subir anexo',e);
+      toast('Não foi possível subir "'+f.name+'". Tente de novo.');
+    }
+  }
+  if(n){
+    aplicaAnexosNoCard();
+    toast(n===1?'Arquivo anexado.':n+' arquivos anexados.');
+  }
+}
+/* Anexo por link cobre o que nao sobe: video grande, pasta do Drive, Canva
+   aberto para edicao. Nao abre aqui dentro, mas fica registrado no card.
+   Formulario no lugar de prompt() do navegador porque prompt nem sempre
+   aparece (em janela embutida ele e simplesmente ignorado) e porque aqui da
+   para dizer o que esta errado no campo, em vez de so recusar. */
+function abreFormLink(){
+  const f=document.getElementById('anxLinkForm');
+  f.classList.add('on');
+  const u=document.getElementById('anxLinkUrl');
+  u.value=''; u.style.borderColor='';
+  document.getElementById('anxLinkNome').value='';
+  u.focus();
+}
+function fechaFormLink(){ document.getElementById('anxLinkForm').classList.remove('on'); }
+function anexaLink(){
+  const inp=document.getElementById('anxLinkUrl');
+  const url=inp.value.trim();
+  if(!/^https?:\/\//i.test(url)){
+    inp.focus(); inp.style.borderColor='var(--vermelho)';
+    toast('O link precisa começar com http:// ou https://.');
+    return;
+  }
+  const sugestao=url.replace(/^https?:\/\//i,'').slice(0,40);
+  const nome=document.getElementById('anxLinkNome').value.trim()||sugestao;
+  draftAnexos.push({id:crypto.randomUUID(),nome,tipo:'',tamanho:0,url,path:null,
+    por:quem||null,at:Date.now()});
+  fechaFormLink();
+  aplicaAnexosNoCard();
+  toast('Link anexado.');
+}
+async function removeAnexo(id){
+  const i=draftAnexos.findIndex(a=>a.id===id);
+  if(i<0) return;
+  const a=draftAnexos[i];
+  const aviso=a.path
+    ? 'Remover "'+(a.nome||'este anexo')+'"? O arquivo é apagado para todo mundo.'
+    : 'Remover o link "'+(a.nome||'este anexo')+'"?';
+  if(!confirm(aviso)) return;
+  draftAnexos.splice(i,1);
+  aplicaAnexosNoCard();
+  await apagaArquivoAnexo(a);
+}
+
+/* ---------- CONVERSA SOBRE O MATERIAL NO MODAL ----------
+   Recado tambem nao e rascunho: mandar e mandar, entao salva na hora. */
+function renderConversa(card){
+  const lista=document.getElementById('convLista');
+  const nota=document.getElementById('convNota');
+  const btn=document.getElementById('btnRecado');
+  const ta=document.getElementById('fRecado');
+  ta.value=''; ta.style.borderColor='';
+  if(!card){
+    lista.innerHTML=`<div class="conv-vazio">A conversa começa depois de salvar o card.</div>`;
+    ta.disabled=true; btn.disabled=true;
+    nota.innerHTML='Salve o card primeiro: o pedido precisa de um card para morar.';
+    return;
+  }
+  const pode=aprovacoesPersistem();
+  ta.disabled=!pode; btn.disabled=!pode;
+  const itens=conversaDe(card);
+  lista.innerHTML = itens.length ? itens.map(a=>{
+    const g=a.gate?gateDe(a.gate):null;
+    const aberto=!a.resolvidoEm;
+    const tag=g?`<span class="tag">${esc(g.curto)}</span>`:'';
+    let fim='';
+    if(a.resolvidoEm){
+      fim=`<div class="fim">✓ `+(a.gate
+        ? 'Trava refeita'
+        : 'Marcado como feito'+(a.resolvidoPor?' por '+esc(nomeDe(a.resolvidoPor)):''))+
+        ` · ${esc(fmtQuando(a.resolvidoEm))}</div>`;
+    }
+    /* Pedido de trava nao fecha no botao: aquele so fecha refazendo a trava,
+       senao um clique apagaria o veredito de quem reprovou. */
+    const acao=(aberto&&!a.gate&&quem&&pode)
+      ? `<div class="acao"><button type="button" data-convok="${a.idx}">✓ Marcar como feito</button></div>`
+      : '';
+    return `<div class="conv-item ${aberto?'aberto':'feito'}">
+      <div class="top">${esc(nomeDe(a.por))} ${a.gate?'pediu ajuste':'pediu mudança'}${tag}`+
+      `<span class="qq">${esc(fmtQuando(a.at))}</span></div>
+      <div class="txt">${esc(a.texto)}</div>${fim}${acao}</div>`;
+  }).join('') : `<div class="conv-vazio">Nada pedido ainda. O que não ficou bom escreve-se aqui.</div>`;
+
+  lista.querySelectorAll('[data-convok]').forEach(b=>b.addEventListener('click',()=>{
+    const c=cards.find(x=>x.id===editingCardId); if(!c) return;
+    if(marcaRecadoFeito(c,+b.dataset.convok,quem)){
+      syncCard(c); renderConversa(c); render();
+      toast('Pedido marcado como feito.');
+    }
+  }));
+
+  if(!pode){
+    nota.innerHTML='<b style="color:var(--ambar)">O banco ainda não guarda isto.</b> '+
+      'Rode o <b>supabase/schema.sql</b> de novo antes.';
+  }else if(!quem){
+    nota.innerHTML='Diga quem é você no topo da tela: pedido sem assinatura não cobra de ninguém.';
+  }else if(gateCompleto(card,'pub') && card.stage<S_POST){
+    nota.innerHTML='A liberação para postar já está dada, e um pedido aqui <b>não derruba</b> ela. '+
+      'Se isso não pode ir ao ar assim, use <b>Pedir ajuste</b> no bloco de aprovações, lá em cima.';
+  }else{
+    nota.innerHTML='Vai com seu nome e a hora, e fica visível no card até alguém marcar como feito.';
+  }
+}
+function enviaRecado(){
+  const ta=document.getElementById('fRecado');
+  const txt=ta.value.trim();
+  if(!editingCardId){ toast('Salve o card primeiro: o pedido precisa de um card para morar.'); return; }
+  if(!txt){ ta.focus(); ta.style.borderColor='var(--vermelho)'; return; }
+  if(!quem){ abrirQuem(); return; }
+  if(!aprovacoesPersistem()){
+    toast('O banco ainda não guarda isto. Rode a atualização do supabase/schema.sql antes.');
+    return;
+  }
+  const c=cards.find(x=>x.id===editingCardId); if(!c) return;
+  mandaRecado(c,quem,txt);
+  syncCard(c);
+  renderConversa(c); render();
+  toast('Pedido enviado. Fica no card até alguém marcar como feito.');
+}
+
 /* O card como ele vai ficar depois de salvar. Serve so para o bloco das travas
    enxergar o que esta na tela. O aprovar de verdade salva antes de conferir,
    entao a previa nunca promete o que o clique nao cumpre. */
@@ -2097,7 +2653,8 @@ function cardComDraft(card){
   const d=kitDoDraft();
   return {...card, classificacoes:[...draftClassif],
     areas:draftAreas.filter(a=>a.data).map(a=>({...a})),
-    pubTitulo:d.pubTitulo, pubDescricao:d.pubDescricao, pubCapa:d.pubCapa};
+    pubTitulo:d.pubTitulo, pubDescricao:d.pubDescricao, pubCapa:d.pubCapa,
+    anexos:d.anexos};
 }
 
 /* ---------- BLOCO DAS TRAVAS NO MODAL ---------- */
@@ -2225,8 +2782,12 @@ function openCardModal(card){
   document.getElementById('fPubTitulo').value=card?(card.pubTitulo||''):'';
   document.getElementById('fPubDescricao').value=card?(card.pubDescricao||''):'';
   document.getElementById('fPubCapa').value=card?(card.pubCapa||''):'';
+  draftAnexos=card?anexosDe(card).map(a=>({...a})):[];
+  fechaFormLink();
+  renderAnexosEditor();
   atualizaKitStatus();
   renderAprovBox(card);
+  renderConversa(card);
   renderResultadoBox(card);
   atualizaAvisoPrazo();
   document.getElementById('overlay').classList.add('open');
@@ -2283,6 +2844,7 @@ function saveCardModal(acao){
     pubTitulo:document.getElementById('fPubTitulo').value.trim(),
     pubDescricao:document.getElementById('fPubDescricao').value.trim(),
     pubCapa:document.getElementById('fPubCapa').value.trim(),
+    anexos:draftAnexos.map(a=>({...a})),
   };
   if(document.getElementById('resBox').style.display!=='none'){
     const texto=document.getElementById('fResTexto').value.trim();
@@ -2389,7 +2951,7 @@ function deleteIdea(){if(!editingIdeaId)return;syncDeleteIdea(editingIdeaId);ide
 
 /* ---------- EXPORT / IMPORT ---------- */
 function exportBackup(){
-  const data={app:'crm-conteudo-cris-maciel',version:4,exportedAt:new Date().toISOString(),cards,ideas};
+  const data={app:'crm-conteudo-cris-maciel',version:5,exportedAt:new Date().toISOString(),cards,ideas};
   const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
   const url=URL.createObjectURL(blob);
   const a=document.createElement('a');
@@ -2572,6 +3134,21 @@ function resumoAprov(c){
   const prox=GATES.find(g=>c.stage<g.guarda);
   return prox?('✓ '+prox.label):'';
 }
+/* O que esta pendurado no material entra no relatorio pelo mesmo motivo que a
+   trava entra: e trabalho em aberto que o Breno precisa ver listado. */
+function resumoRecados(c){
+  const l=recadosAbertos(c);
+  if(!l.length) return '';
+  const u=l[l.length-1];
+  return l.length===1
+    ? '💬 Pedido de mudança de '+nomeDe(u.por)+': '+u.texto
+    : '💬 '+l.length+' pedidos de mudança em aberto. Último, de '+nomeDe(u.por)+': '+u.texto;
+}
+function resumoAnexos(c){
+  const n=anexosDe(c).length;
+  if(!n) return '';
+  return '📎 '+n+(n===1?' arquivo anexado':' arquivos anexados');
+}
 function resumoResultado(c){
   if(!c.resultado||!c.resultado.nota) return '';
   return 'Resultado: '+rotuloResultado(c.resultado.nota)+
@@ -2593,6 +3170,8 @@ function cardReportRow(c,si,inc){
       ${c.dataEntrega?`<div class="rep-meta">Entrega em ${fmtISO(c.dataEntrega)}</div>`:''}
       ${situacao?`<div class="rep-status">${situacao}</div>`:''}
       ${inc.aprov&&resumoAprov(c)?`<div class="rep-meta">${esc(resumoAprov(c))}</div>`:''}
+      ${inc.aprov&&resumoRecados(c)?`<div class="rep-meta">${esc(resumoRecados(c))}</div>`:''}
+      ${inc.aprov&&resumoAnexos(c)?`<div class="rep-meta">${esc(resumoAnexos(c))}</div>`:''}
       ${inc.aprov&&resumoResultado(c)?`<div class="rep-meta">${esc(resumoResultado(c))}</div>`:''}
       ${redes.length?`<div class="rep-meta">Publicações: ${redes.join(' · ')}</div>`:''}
       ${inc.link&&c.link?`<div class="rep-meta">Link: ${esc(c.link)}</div>`:''}
@@ -2802,6 +3381,8 @@ function exportReportPDF(f){
       if(redes.length) metas.push('Publicações: '+redes.join(' · '));
       if(inc.link&&c.link) metas.push('Link: '+c.link);
       if(inc.aprov&&resumoAprov(c)) metas.push(resumoAprov(c));
+      if(inc.aprov&&resumoRecados(c)) metas.push(resumoRecados(c));
+      if(inc.aprov&&resumoAnexos(c)) metas.push(resumoAnexos(c));
       if(inc.aprov&&resumoResultado(c)) metas.push(resumoResultado(c));
       const situacao=situacaoInfo(c,g.si).map(p=>p.text).join(' · ');
       const pendentes=inc.checklist?c.checklist.filter(i=>!i.done).map(i=>'• '+i.text):[];
@@ -2967,6 +3548,36 @@ document.getElementById('fTitle').addEventListener('input',e=>e.target.style.bor
 ['fPubTitulo','fPubDescricao','fPubCapa'].forEach(id=>
   document.getElementById(id).addEventListener('input',atualizaKitStatus));
 
+/* MATERIAL ANEXADO */
+document.getElementById('anxPick').addEventListener('click',()=>document.getElementById('anxFile').click());
+document.getElementById('anxFile').addEventListener('change',async e=>{
+  const files=e.target.files;
+  if(files&&files.length) await anexaArquivos(files);
+  e.target.value='';
+});
+document.getElementById('anxLink').addEventListener('click',abreFormLink);
+document.getElementById('anxLinkOk').addEventListener('click',anexaLink);
+document.getElementById('anxLinkCancel').addEventListener('click',fechaFormLink);
+document.getElementById('anxLinkUrl').addEventListener('input',e=>e.target.style.borderColor='');
+document.getElementById('anxLinkUrl').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();anexaLink();}});
+document.getElementById('anxLinkNome').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();anexaLink();}});
+document.getElementById('vzClose').addEventListener('click',fechaVisor);
+document.getElementById('overlayVisor').addEventListener('click',e=>{if(e.target.id==='overlayVisor')fechaVisor()});
+/* Miniatura aparece em lugares que ja tem clique proprio (o card do quadro
+   abre o modal), entao a captura vem antes e para o clique ali mesmo. */
+document.addEventListener('click',e=>{
+  const alvo=e.target.closest?e.target.closest('[data-vz]'):null;
+  if(!alvo) return;
+  e.preventDefault(); e.stopPropagation();
+  const [cid,aid]=alvo.dataset.vz.split('|');
+  const c=cards.find(x=>x.id===cid); if(!c) return;
+  abreVisor(anexosDe(c).find(a=>a.id===aid));
+},true);
+
+/* CONVERSA SOBRE O MATERIAL */
+document.getElementById('btnRecado').addEventListener('click',enviaRecado);
+document.getElementById('fRecado').addEventListener('input',e=>e.target.style.borderColor='');
+
 /* IDENTIDADE */
 document.getElementById('btnEu').addEventListener('click',abrirQuem);
 document.getElementById('qClose').addEventListener('click',fecharQuem);
@@ -3003,7 +3614,13 @@ document.getElementById('btnImport').addEventListener('click',()=>document.getEl
 document.getElementById('fileImport').addEventListener('change',e=>{if(e.target.files[0])importBackup(e.target.files[0]);e.target.value='';});
 document.getElementById('btnMerge').addEventListener('click',()=>document.getElementById('fileMerge').click());
 document.getElementById('fileMerge').addEventListener('change',e=>{if(e.target.files[0])mergeBackup(e.target.files[0]);e.target.value='';});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeCardModal();closeIdeaModal();closeReportModal();fecharQuem();fecharAjuste();}});
+document.addEventListener('keydown',e=>{
+  if(e.key!=='Escape') return;
+  /* O visor abre por cima do card. Fechar os dois de uma vez tiraria o Breno
+     da conferencia que ele acabou de abrir. */
+  if(document.getElementById('overlayVisor').classList.contains('open')){ fechaVisor(); return; }
+  closeCardModal();closeIdeaModal();closeReportModal();fecharQuem();fecharAjuste();
+});
 
 (async function(){
   initSelects();

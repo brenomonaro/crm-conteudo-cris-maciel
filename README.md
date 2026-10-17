@@ -7,6 +7,45 @@ Supabase para Breno e Nicole verem o mesmo quadro em tempo real.
 Sem o Supabase configurado, o app continua funcionando sozinho, salvando só
 no navegador local (útil para testar antes de publicar).
 
+## O material que não é vídeo
+
+Além das quatro classificações de vídeo existe **Outros**: panfleto, foto à
+parte, arte de campanha, o que a Nicole produz fora da câmera. Esse trabalho
+sempre existiu e vivia fora do quadro; agora entra como card, com checklist
+próprio (briefing definido, arquivo anexado) e sem meta mensal, porque meta
+mede o que a agenda de gravação precisa produzir e isso aqui nasce de demanda
+avulsa.
+
+## Material anexado
+
+Dentro do **Kit de publicação** o card tem uma área de anexos: imagem, PDF ou
+documento, até 25 MB cada. Imagem e PDF abrem **dentro do site**, na mesma tela
+onde está o botão de liberar, inclusive na fila de **Aprovações**. Aprovar
+material que só existe como link no WhatsApp é aprovar no escuro.
+
+O que não sobe (vídeo grande, pasta do Drive, Canva aberto para edição) entra
+como **anexo por link**: fica registrado no card, só não abre aqui dentro.
+
+Duas regras valem a pena saber:
+
+- Card classificado como **Outros** não fica pronto sem arquivo anexado, e em
+  compensação não pede capa: ali o arquivo *é* a peça.
+- Trocar ou remover o material depois de liberado **derruba a liberação**, pelo
+  mesmo motivo que trocar a capa derruba: o aval era sobre o pacote antigo.
+
+## Conversa sobre o material
+
+Embaixo do kit, cada card tem uma conversa: o Breno escreve o que quer que
+melhore, a Nicole lê e responde, tudo em ordem e assinado. Pedido em aberto
+aparece no card do quadro, na faixa de alerta e numa seção própria em
+**Aprovações**, até alguém clicar em *marcar como feito*.
+
+Pedido de ajuste de trava cai nessa mesma lista, marcado com a trava de origem,
+para quem vai refazer não ter que olhar em dois lugares. A diferença é o que
+cada um faz: **pedir ajuste** derruba a aprovação e devolve o card; **pedido de
+mudança** é recado, não trava etapa nenhuma. Quando a liberação já está dada, o
+próprio campo avisa isso e aponta para o Pedir ajuste.
+
 ## As duas travas de aprovação
 
 Nada entra em **Gravado** sem a pauta aprovada pelo Breno e pela Nicole, e
@@ -75,10 +114,16 @@ mesmo quadro em tempo real.
 
 > **Atualizando um banco que já existe:** rode `supabase/schema.sql` inteiro
 > de novo no SQL Editor. Ele é seguro de repetir, não apaga nada, só
-> acrescenta as colunas que faltam. Enquanto as colunas das aprovações não
+> acrescenta o que falta. Enquanto as colunas das aprovações não
 > existirem, o quadro continua funcionando normal e aparece uma faixa no topo
 > avisando; as aprovações ficam bloqueadas nesse período, porque aprovação que
-> não salva é pior do que aprovação nenhuma.
+> não salva é pior do que aprovação nenhuma. O mesmo vale para os anexos.
+>
+> O arquivo também cria o bucket **anexos** no Storage, que é onde os arquivos
+> ficam. Se esse bloco falhar por falta de permissão, nada mais quebra: crie o
+> bucket à mão em *Storage > New bucket*, com o nome `anexos` e a opção
+> **Public** marcada. Sem ele dá para anexar por link, só não dá para subir
+> arquivo, e a faixa no topo avisa.
 
 ### 2. Publicar num link fixo
 
@@ -111,7 +156,8 @@ válvula de escape independente do banco.
 - `index.html`: aplicativo completo (interface, regras de negócio, camada
   de sincronização).
 - `config.js`: credenciais do projeto Supabase.
-- `supabase/schema.sql`: schema das tabelas, realtime e políticas de acesso.
+- `supabase/schema.sql`: schema das tabelas, o bucket dos anexos, realtime e
+  políticas de acesso.
 
 ## Relatório
 
