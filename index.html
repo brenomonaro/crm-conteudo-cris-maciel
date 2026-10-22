@@ -237,6 +237,8 @@
   .chk-add button{background:var(--grafite);color:#fff;border-radius:7px;padding:0 14px;font-size:12px;font-weight:600}
 
   /* ---------- MATERIAL ANEXADO ---------- */
+  .outros-box{border:1px solid var(--linha);border-left:3px solid var(--c-outros);border-radius:10px;padding:12px 12px 2px;background:var(--branco)}
+  .outros-box #obsField{margin:14px 0 12px}
   .anx-box{border:1px solid var(--linha);border-radius:10px;padding:9px;background:var(--creme)}
   .anx-grid{display:flex;gap:8px;flex-wrap:wrap}
   .anx{width:94px;background:var(--branco);border:1px solid var(--linha);border-radius:9px;overflow:hidden;position:relative}
@@ -510,6 +512,12 @@
         <label>Classificação (pode marcar mais de uma)</label>
         <div class="chip-select" id="fClassM"></div>
       </div>
+      <div class="field outros-box" id="outrosBox" style="display:none">
+        <label>Outros · Material produzido</label>
+        <div class="hint-inline" style="margin-top:-3px;margin-bottom:9px">O que a Nicole produziu fora da câmera: panfleto, arte, foto, PDF de análise. Imagem e PDF abrem aqui dentro, para conferir sem baixar.</div>
+        <div id="outrosAnxSlot"></div>
+        <div id="outrosObsSlot"></div>
+      </div>
       <div class="field row">
         <div>
           <label>Corretor</label>
@@ -552,7 +560,8 @@
         <input id="fPubTitulo" placeholder="Título da publicação" style="margin-bottom:9px">
         <textarea id="fPubDescricao" placeholder="Descrição ou legenda que vai no post" style="margin-bottom:9px"></textarea>
         <input id="fPubCapa" placeholder="Capa: link do Canva, do Drive ou onde ela está">
-        <label style="margin-top:14px">Material anexado</label>
+        <div id="anxWrap">
+        <label style="margin-top:14px" id="anxLabel">Material anexado</label>
         <div class="anx-box">
           <div class="anx-grid" id="anxGrid"></div>
           <div class="anx-add">
@@ -570,6 +579,7 @@
           </div>
         </div>
         <div class="hint-inline" id="anxNota" style="margin-top:6px"></div>
+        </div>
         <div class="hint-inline" id="kitStatus" style="margin-top:7px"></div>
       </div>
       <div class="field" id="convBox">
@@ -590,9 +600,10 @@
         <label>Checklist, o que falta</label>
         <div class="chk-editor" id="chkEditor"></div>
       </div>
-      <div class="field">
-        <label>Observações</label>
+      <div class="field" id="obsField">
+        <label id="obsLabel">Observações</label>
         <textarea id="fObs" placeholder="Anotações do conteúdo"></textarea>
+        <div class="hint-inline" id="obsHint" style="display:none">Texto único e compartilhado: o Breno escreve a análise e a Nicole ajusta aqui mesmo. Vale o que estiver salvo por último.</div>
       </div>
       <div class="field" id="resBox" style="display:none">
         <label>Como foi depois de publicado</label>
@@ -2387,7 +2398,31 @@ function fillSelect(id,arr,sel){
     return `<option value="${v}" ${String(v)===String(sel)?'selected':''}>${l}</option>`;
   }).join('');
 }
+/* Em card "Outros" o material e a peca, entao anexo e observacao saem do fim
+   do formulario e viram um bloco proprio logo abaixo da classificacao. Sao os
+   mesmos elementos (mesmos ids e mesma logica de anexo), so mudam de lugar:
+   nao existe segunda copia para ficar fora de sincronia. */
+function posicionaOutros(){
+  const outros=draftClassif.includes('Outros');
+  const anx=document.getElementById('anxWrap'), obs=document.getElementById('obsField');
+  document.getElementById('outrosBox').style.display=outros?'block':'none';
+  if(outros){
+    document.getElementById('outrosAnxSlot').appendChild(anx);
+    document.getElementById('outrosObsSlot').appendChild(obs);
+  }else{
+    document.getElementById('kitBox').insertBefore(anx,document.getElementById('kitStatus'));
+    const resBox=document.getElementById('resBox');
+    resBox.parentNode.insertBefore(obs,resBox);
+  }
+  document.getElementById('anxLabel').style.display=outros?'none':'';
+  document.getElementById('obsLabel').textContent=outros?'Observação e análise':'Observações';
+  document.getElementById('fObs').placeholder=outros
+    ? 'Análise do material, o que funcionou, o que mudar'
+    : 'Anotações do conteúdo';
+  document.getElementById('obsHint').style.display=outros?'block':'none';
+}
 function renderClassifChips(){
+  posicionaOutros();
   const box=document.getElementById('fClassM');
   box.innerHTML=CLASSIF.map(cl=>`<button type="button" class="chip-opt ${draftClassif.includes(cl)?'on':''}" data-cl="${esc(cl)}">${esc(cl)}</button>`).join('');
   box.querySelectorAll('[data-cl]').forEach(b=>b.addEventListener('click',()=>{
